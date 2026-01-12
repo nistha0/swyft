@@ -9,13 +9,13 @@ pygame.init()
 # -------------------------
 WIDTH, HEIGHT = 1200, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Hill Climb Racing - Ant Position Manual")
+pygame.display.set_caption("Hill Climb Racing - car Position Manual")
 clock = pygame.time.Clock()
 
 # Load ant image
-ant_image = pygame.image.load("ant.png").convert_alpha()
-ant_scale = 0.1  # scale factor for ant size
-ant_image = pygame.transform.rotozoom(ant_image, 0, ant_scale)
+car_image = pygame.image.load("car.png").convert_alpha()
+car_scale = 0.2 # scale factor for ant size
+car_image = pygame.transform.rotozoom(car_image, 0, car_scale)
 
 # -------------------------
 # Smooth Terrain Generator
@@ -48,21 +48,7 @@ def draw_sky():
             b = middle[2] * (1 - t2) + bottom[2] * t2
         pygame.draw.line(screen, (int(r), int(g), int(b)), (0, y), (WIDTH, y))
 
-# -------------------------
-# Draw sun with glow
-# -------------------------
-def draw_sun():
-    sun_x, sun_y = 1000, 120
-    sun_radius = 70
 
-    glow_surface = pygame.Surface((300, 300), pygame.SRCALPHA)
-    
-    for i in range(10, 150, 10):
-        alpha = max(0, 80 - i//2)
-        pygame.draw.circle(glow_surface, (255, 255, 200, alpha), (150, 150), i)
-    
-    pygame.draw.circle(glow_surface, (255, 255, 180), (150, 150), sun_radius)
-    screen.blit(glow_surface, (sun_x - 150, sun_y - 150))
 
 # -------------------------
 # Clouds
@@ -101,10 +87,10 @@ hill_mid = generate_smooth_hill(offset_y=500, amplitude=40)
 hill_front = generate_smooth_hill(offset_y=550, amplitude=55)
 
 # -------------------------
-# Manual ant position
+# Manual car position
 # -------------------------
-ant_x = WIDTH // 2.5   # Change this to move ant left/right
-ant_y = 450        # Change this to move ant up/down
+car_x = WIDTH // 2.5   # Change this to move car left/right
+car_y = 457      # Change this to move car up/down
 
 # -------------------------
 # Main Loop
@@ -118,19 +104,19 @@ while running:
             running = False
 
     draw_sky()
-    draw_sun()
+    
 
     for cloud in clouds:
         cloud.update(dt)
         cloud.draw()
 
-    draw_hill(hill_back, (160, 220, 170))
-    draw_hill(hill_mid, (100, 190, 120))
-    draw_hill(hill_front, (70, 150, 90))
+    draw_hill(hill_back, (0, 130, 0))
+    draw_hill(hill_mid, (0, 130, 0))
+    draw_hill(hill_front, (0, 130, 0))
 
     # Draw ant at manual position
-    ant_rect = ant_image.get_rect(midbottom=(ant_x, ant_y))
-    screen.blit(ant_image, ant_rect)
+    car_rect = car_image.get_rect(midbottom=(car_x, car_y))
+    screen.blit(car_image, car_rect)
 
     pygame.display.update()
 
