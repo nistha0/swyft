@@ -1,130 +1,169 @@
-🚗 SWYFT — 2D Hill Climb Racing Game (Gesture Controlled)
+# 🚗 SWYFT
 
-SWYFT is a fun and interactive 2D hill-climb racing game built with Python + Pygame, featuring hand-gesture controls using MediaPipe.
-Drive across randomly generated terrain, avoid obstacles, and keep your car balanced to survive as long as possible.
+> A gesture-controlled 2D hill climb racing game built with Python and MediaPipe.
 
-✨ Features
+## 👥 Team
 
-🎮 Game Features
+This project was developed by:
 
-Procedurally generated endless terrain
+- **Nistha Dhakal** - UI 
+- **Aakriti KC** - UI
+- **Adhish Gurung** - Game Design & Physics
+- **Tadillata Bhandari** - Gesture Control System
 
-Realistic car physics and suspension
+*Computer Science Academic Project*
 
-Obstacles and difficulty progression
+## 🎮 About
 
-Menu screen, game over screen & music
+**SWYFT** is an innovative 2D racing game that combines classic hill climb physics with modern computer vision. Control your car using hand gestures captured through your webcam, or fall back to traditional keyboard controls. Navigate procedurally generated terrain and try to survive as long as possible!
 
-Smooth camera tracking
+Built as a Computer Science academic project, SWYFT demonstrates real-world applications of game physics, computer vision, and human-computer interaction.
 
-Cross-platform run support (Windows/Linux)
+## ✨ Features
 
-🖐️ Gesture Control
+### 🎯 Gameplay
+- **Procedurally Generated Terrain** 
+- **Realistic Physics** 
+- **Progressive Difficulty**
+- **Score Tracking** 
+- **Smooth Visuals**
 
-Control the car using your hand via webcam
+### 🖐️ Gesture Control
+- **Real-time Hand Detection** - Powered by MediaPipe's machine learning models
+- **Intuitive Controls** - Natural hand movements control acceleration and braking
+- **Webcam Integration** - Works with any standard webcam
+- **Diagnostic Tools** - Built-in troubleshooting for gesture detection
+- **Keyboard Fallback** - Traditional controls available anytime
 
-MediaPipe powered real-time detection
+### 🎵 Audio
+- **Background Music** - Immersive soundtracks for menu and gameplay
+- **Easy Customization** - Replace music files effortlessly
 
-Keyboard fallback controls included
+## 🛠️ Tech Stack
 
-Diagnostic & troubleshooting tools provided
+| Component | Technology |
+|-----------|-----------|
+| Language | Python 3.8+ |
+| Game Engine | Pygame |
+| Computer Vision | MediaPipe |
+| Physics | Custom Physics Engine |
+| Audio | Pygame Mixer |
 
-🎵 Audio
+## 📦 Installation
 
-Background music for menu & gameplay
+### Prerequisites
+- Python 3.8 or higher
+- Webcam (for gesture control)
 
-Easy music replacement support
+### Setup
 
-🧠 Tech Stack
-Area	Technology
-Language	Python
-Game Engine	Pygame
-Computer Vision	MediaPipe
-Physics	Custom Physics Engine
-Version Control	Git & GitHub
-📂 Project Structure
-SWYFT/
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/nistha0/swyft.git
+   cd swyft
+   ```
+
+2. **Run the game**
+
+   ```bash
+   python main.py
+   ```
+
+## 🕹️ How to Play
+
+### Keyboard Controls
+
+| Key | Action |
+|-----|--------|
+| `→` | Accelerate |
+| `←` | Brake / Reverse |
+| `R` | Restart Game |
+| `ESC` | Return to Menu / Quit |
+
+### Gesture Controls
+
+| Gesture | Action |
+|---------|--------|
+| Open hand | Accelerate |
+| Closed fist | Brake |
+| No Hand Detected | Pause |
+
+**Tips:**
+- Ensure good lighting for optimal gesture detection
+- Keep your hand within the webcam frame
+- Use the diagnostic tool (`python camera_diagnostic.py`) to test your setup
+
+## 📁 Project Structure
+
+```
+swyft/
 │
-├── main.py                # Entry point
-├── game.py                # Core game loop
-├── car.py                 # Car physics & behavior
-├── terrain.py             # Procedural terrain generation
-├── obstacles.py           # Obstacles & collisions
-├── renderer.py            # Rendering engine
-├── gesture_handler.py     # Hand gesture control
-├── camera.py              # Webcam integration
-├── music_manager.py       # Background music
+├── main.py                  # Game entry point
+├── game.py                  # Core game loop and logic
+├── car.py                   # Car physics and behavior
+├── terrain.py               # Procedural terrain generation
+├── obstacles.py             # Obstacle system and collision
+├── renderer.py              # Graphics rendering engine
+├── gesture_handler.py       # Gesture recognition system
+├── camera.py                # Webcam capture and processing
+├── physics.py               # Physics calculations
+├── music_manager.py         # Audio management
+├── menu.py                  # Menu interface
+├── game_state.py            # Game state management
+├── entities.py              # Game entities and sprites
+├── config.py                # Configuration settings
 │
-├── music/                 # Game & menu music
-├── run.bat / run.sh       # Quick run scripts
-└── requirements.txt       # Dependencies
+├── music/                   # Audio files
+├── test_gesture.py          # Gesture testing utility
+├── camera_diagnostic.py     # Camera troubleshooting tool
+├── requirements.txt         # Python dependencies
+└── README.md               # This file
+```
 
-⚙️ Installation
-1️⃣ Clone the repository
-git clone https://github.com/nistha0/swyft.git
-cd swyft
+## 🎯 Objective
 
-2️⃣ Install dependencies
-pip install -r requirements.txt
+Drive your car across an infinite procedurally generated landscape. Balance speed with control to:
+- Avoid flipping over
+- Navigate steep hills and valleys
+- Dodge obstacles
+- Maximize your distance traveled
 
-3️⃣ Run the game
+The terrain gets progressively harder - how far can you go?
 
-Windows:
+## 🐛 Troubleshooting
 
-run.bat
+### Gesture Controls Not Working?
+
+1. **Run the diagnostic tool:**
+   ```bash
+   python camera_diagnostic.py
+   ```
+
+2. **Check camera permissions** - Ensure Python has webcam access
+
+3. **Test gesture recognition:**
+   ```bash
+   python test_gesture.py
+   ```
+
+4. **Common fixes:**
+   - Ensure adequate lighting
+   - Update webcam drivers
+   - Check `config.py` for gesture sensitivity settings
 
 
-Linux/Mac:
+## 🚀 Future Enhancements
 
-bash run.sh
+- [ ] Multiplayer mode
+- [ ] Power-ups and collectibles
+- [ ] Level editor
+- [ ] Mobile version
+- [ ] Advanced gesture controls (both hands)
 
 
-Or:
+## 🙏 Acknowledgments
 
-python main.py
+- MediaPipe team for hand tracking technology
+- Pygame community for excellent documentation
+- Hill Climb Racing for inspiration
 
-🕹️ Controls
-⌨️ Keyboard Mode
-Key	Action
-→	Accelerate
-←	Brake / Reverse
-R	Restart
-ESC	Quit
-🖐️ Gesture Mode
-Gesture	Action
-Hand Forward	Accelerate
-Hand Back	Brake
-No Hand	Idle
-
-(Make sure your webcam is enabled)
-
-📸 Screenshots
-
-(You can add screenshots here later)
-
-🎯 Learning Goals
-
-This project was built as a Computer Science academic project to explore:
-
-Game development fundamentals
-
-Physics simulation
-
-Computer vision integration
-
-Real-time user interaction
-
-👩‍💻 Author
-
-Nistha Dhakal
-Aakriti KC
-Adhish Gurung
-Tadillata Bhandari
-
-Computer Science Student
-
-GitHub: https://github.com/nistha0
-
-⭐ If you like this project
-
-Give it a ⭐ on GitHub!
